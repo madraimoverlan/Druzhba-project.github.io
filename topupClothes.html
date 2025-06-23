@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог верхней одежды | Дружба - женская одежда</title>
+    <link rel="stylesheet" href="css/style-main.css">
+    <link rel="stylesheet" href="css/style-catalog.css">
+    <link rel="stylesheet" href="css/topupClothes.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+    <div class="container">
+        <div class="header__inner">
+            <a href="index.html" class="logo">
+                <img src="img/logo.svg" alt="Дружба" class="logo__img">
+                <span class="logo__text">ДРУЖБА</span>
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item nav__item--dropdown">
+                        <a href="catalog.html" class="nav__link">
+                            <span class="nav__link-text">Каталог</span>
+                            <span class="nav__link-arrow"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="topupClothes.html" class="dropdown-link">Верхняя одежда</a></li>
+                            <li class="dropdown-item"><a href="dresses.html" class="dropdown-link">Платья</a></li>
+                            <li class="dropdown-item"><a href="pants.html" class="dropdown-link">Брюки</a></li>
+                            <li class="dropdown-item"><a href="t-shirts.html" class="dropdown-link">Футболки</a></li>
+                            <li class="dropdown-item"><a href="accessories.html" class="dropdown-link">Аксессуары</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav__item"><a href="deals.html" class="nav__link">Акции</a></li>
+                    <li class="nav__item"><a href="new.html" class="nav__link">Новинки</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__actions">
+                <div class="auth-dropdown">
+                    <button class="auth-btn" id="auth-btn">
+                        <span class="auth-btn__icon">👤</span>
+                        <span class="auth-btn__text" id="auth-btn-text">Войти</span>
+                    </button>
+                    <div class="auth-dropdown-menu" id="auth-dropdown">
+                        <div class="auth-dropdown-content" id="auth-dropdown-content">
+                            <!-- Динамическое содержимое -->
+                        </div>
+                    </div>
+                </div>
+                <a href="cart.html" class="cart-btn-link">
+                    <button class="cart-btn" aria-label="Корзина">
+                        <span class="cart-btn__icon">🛒</span>
+                        <span class="cart-btn__count" id="cart-count">0</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+    </header>
+
+    <main class="catalog-page">
+        <!-- Баннер каталога верхней одежды -->
+        <section class="catalog-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('img/outerwear-banner.jpg');">
+            <div class="container">
+                <h1 class="catalog-banner__title">Верхняя одежда</h1>
+                <p class="catalog-banner__text">Стильные и теплые решения для любого сезона</p>
+            </div>
+        </section>
+
+        <!-- Фильтры для верхней одежды -->
+        <section class="catalog-controls">
+            <div class="container">
+                <div class="catalog-controls__inner">
+                    <div class="catalog-filters">
+                        <button class="btn btn--outline filter-btn" id="filterBtn">
+                            Фильтры
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6H20M8 12H16M13 18H11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        
+                        <div class="filter-panel" id="filterPanel">
+                            <!-- Фильтр по типам верхней одежды -->
+                            <div class="filter-group">
+                                <h3 class="filter-group__title">Тип одежды</h3>
+                                <ul class="filter-list">
+                                    <li class="filter-item"><label><input type="checkbox" value="coats" checked> Пальто</label></li>
+                                    <li class="filter-item"><label><input type="checkbox" value="jackets" checked> Куртки</label></li>
+                                    <li class="filter-item"><label><input type="checkbox" value="down-jackets" checked> Пуховики</label></li>
+                                    <li class="filter-item"><label><input type="checkbox" value="trench" checked> Тренчи</label></li>
+                                    <li class="filter-item"><label><input type="checkbox" value="parkas" checked> Парки</label></li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Фильтр по размеру -->
+                            <div class="filter-group">
+                                <h3 class="filter-group__title">Размер</h3>
+                                <div class="size-selector">
+                                    <button class="size-btn">XS</button>
+                                    <button class="size-btn">S</button>
+                                    <button class="size-btn size-btn--active">M</button>
+                                    <button class="size-btn">L</button>
+                                    <button class="size-btn">XL</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Фильтр по материалу -->
+                            <div class="filter-group">
+                                <h3 class="filter-group__title">Материал</h3>
+                                <ul class="filter-list">
+                                    <li class="filter-item"><label><input type="checkbox" checked> Шерсть</label></li>
+                                    <li class="filter-item"><label><input type="checkbox" checked> Хлопок</label></li>
+                                    <li class="filter-item"><label><input type="checkbox" checked> Кожа</label></li>
+                                    <li class="filter-item"><label><input type="checkbox" checked> Пух</label></li>
+                                    <li class="filter-item"><label><input type="checkbox" checked> Синтетика</label></li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Фильтр по сезону -->
+                            <div class="filter-group">
+                                <h3 class="filter-group__title">Сезон</h3>
+                                <ul class="filter-list">
+                                    <li class="filter-item"><label><input type="checkbox" checked> Демисезон</label></li>
+                                    <li class="filter-item"><label><input type="checkbox" checked> Зима</label></li>
+                                    <li class="filter-item"><label><input type="checkbox" checked> Весна-Осень</label></li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Фильтр по цене -->
+                            <div class="filter-group">
+                                <h3 class="filter-group__title">Цена, ₽</h3>
+                                <div class="price-range">
+                                    <input type="range" min="2000" max="30000" value="15000" class="price-slider">
+                                    <div class="price-values">
+                                        <span>2 000</span>
+                                        <span>15 000</span>
+                                        <span>30 000+</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn--primary apply-filters">Применить</button>
+                        </div>
+                    </div>
+                    
+                    <div class="catalog-sort">
+                        <label for="sortSelect">Сортировка:</label>
+                        <select id="sortSelect" class="sort-select">
+                            <option value="popular">По популярности</option>
+                            <option value="price-asc">По возрастанию цены</option>
+                            <option value="price-desc">По убыванию цены</option>
+                            <option value="newest">Сначала новые</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Основной каталог -->
+        <section class="catalog-main">
+            <div class="container">
+                <div class="catalog-grid" id="catalogGrid">
+                    <!-- Товары будут загружаться через JS -->
+                </div>
+                
+                <div class="catalog-pagination" id="pagination">
+                    <!-- Пагинация будет генерироваться через JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+        <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <!-- Brand Column -->
+                <div class="footer__col footer__col--brand">
+                    <div class="footer-brand">
+                        <img src="img/logo2.svg" alt="Дружба" class="footer-brand__logo">
+                        <h3 class="footer-brand__name">ДРУЖБА</h3>
+                    </div>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="/about" class="footer-menu__link">О нас</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Other Columns -->
+                <div class="footer__col">
+                    <h3 class="footer__title">КАТАЛОГИ</h3>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="topupClothes.html" class="footer-menu__link">Вверхняя одежда</a></li>
+                        <li class="footer-menu__item"><a href="dresses.html" class="footer-menu__link">Платья</a></li>
+                        <li class="footer-menu__item"><a href="/lingerie" class="footer-menu__link">Брюки</a></li>
+                        <li class="footer-menu__item"><a href="/lingerie" class="footer-menu__link">Футболки</a></li>
+                        <li class="footer-menu__item"><a href="/lingerie" class="footer-menu__link">Аксессуары</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3 class="footer__title">НОВИНКИ</h3>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="deals.html" class="footer-menu__link">Акции</a></li>
+                        <li class="footer-menu__item"><a href="new.html" class="footer-menu__link">Новинки</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3 class="footer__title">ИЗБРАННОЕ</h3>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="cart.html" class="footer-menu__link">Корзина</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/slide-outMenu.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/outerwear-script.js"></script>
+</body>
+</html>

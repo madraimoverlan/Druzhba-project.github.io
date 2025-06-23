@@ -1,0 +1,92 @@
+/* Стили для страницы новинок */
+.new-page {
+    padding: 20px 0 40px;
+}
+
+.new-banner {
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0;
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.new-banner__title {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
+}
+
+.new-banner__text {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.new-controls {
+    margin-bottom: 30px;
+}
+
+.new-controls__inner {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.new-sort {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sort-select {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+}
+
+.new-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+/* Бейдж новинки */
+.product-card__badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #e74c3c;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .new-banner {
+        padding: 50px 0;
+    }
+    
+    .new-banner__title {
+        font-size: 2rem;
+    }
+    
+    .new-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .new-banner__title {
+        font-size: 1.8rem;
+    }
+    
+    .new-controls__inner {
+        justify-content: center;
+    }
+}

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Акции | Дружба - женская одежда</title>
+    <link rel="stylesheet" href="css/style-main.css">
+    <link rel="stylesheet" href="css/style-catalog.css">
+    <link rel="stylesheet" href="css/style-deals.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+   <header class="header">
+    <div class="container">
+        <div class="header__inner">
+            <a href="index.html" class="logo">
+                <img src="img/logo.svg" alt="Дружба" class="logo__img">
+                <span class="logo__text">ДРУЖБА</span>
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item nav__item--dropdown">
+                        <a href="catalog.html" class="nav__link">
+                            <span class="nav__link-text">Каталог</span>
+                            <span class="nav__link-arrow"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="topupClothes.html" class="dropdown-link">Верхняя одежда</a></li>
+                            <li class="dropdown-item"><a href="dresses.html" class="dropdown-link">Платья</a></li>
+                            <li class="dropdown-item"><a href="pants.html" class="dropdown-link">Брюки</a></li>
+                            <li class="dropdown-item"><a href="t-shirts.html" class="dropdown-link">Футболки</a></li>
+                            <li class="dropdown-item"><a href="accessories.html" class="dropdown-link">Аксессуары</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav__item"><a href="deals.html" class="nav__link">Акции</a></li>
+                    <li class="nav__item"><a href="new.html" class="nav__link">Новинки</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__actions">
+                <div class="auth-dropdown">
+                    <button class="auth-btn" id="auth-btn">
+                        <span class="auth-btn__icon">👤</span>
+                        <span class="auth-btn__text" id="auth-btn-text">Войти</span>
+                    </button>
+                    <div class="auth-dropdown-menu" id="auth-dropdown">
+                        <div class="auth-dropdown-content" id="auth-dropdown-content">
+                            <!-- Динамическое содержимое -->
+                        </div>
+                    </div>
+                </div>
+                <a href="cart.html" class="cart-btn-link">
+                    <button class="cart-btn" aria-label="Корзина">
+                        <span class="cart-btn__icon">🛒</span>
+                        <span class="cart-btn__count" id="cart-count">0</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+    </header>
+
+    <main class="deals-page">
+        <section class="deals-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('img/deals-banner.jpg');">
+            <div class="container">
+                <h1 class="deals-banner__title">Специальные предложения</h1>
+                <p class="deals-banner__text">Выгодные покупки для вашего гардероба</p>
+                <div class="countdown-timer" id="countdownTimer">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">00</span>
+                        <span class="countdown-label">дней</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">00</span>
+                        <span class="countdown-label">часов</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">00</span>
+                        <span class="countdown-label">минут</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">00</span>
+                        <span class="countdown-label">секунд</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="deals-sections">
+            <div class="container">
+                <div class="deals-tabs">
+                    <button class="deals-tab active" data-tab="all">Все акции</button>
+                    <button class="deals-tab" data-tab="discount">Скидки</button>
+                    <button class="deals-tab" data-tab="bundle">Наборы</button>
+                    <button class="deals-tab" data-tab="clearance">Распродажа</button>
+                </div>
+                
+                <div class="deals-content">
+                    <div class="deals-grid" id="dealsGrid">
+                        <!-- Товары будут загружаться через JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="special-offer">
+            <div class="container">
+                <div class="special-offer__card">
+                    <div class="special-offer__content">
+                        <h2 class="special-offer__title">Специальное предложение недели</h2>
+                        <p class="special-offer__text">При покупке двух вещей из коллекции "Лето 2023" - третья в подарок!</p>
+                        <button class="btn btn--primary" id="specialOfferBtn">Узнать подробности</button>
+                    </div>
+                    <div class="special-offer__image">
+                        <img src="img/special-offer.jpg" alt="Специальное предложение">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <!-- Brand Column -->
+                <div class="footer__col footer__col--brand">
+                    <div class="footer-brand">
+                        <img src="img/logo2.svg" alt="Дружба" class="footer-brand__logo">
+                        <h3 class="footer-brand__name">ДРУЖБА</h3>
+                    </div>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="/about" class="footer-menu__link">О нас</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Other Columns -->
+                <div class="footer__col">
+                    <h3 class="footer__title">КАТАЛОГИ</h3>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="topupClothes.html" class="footer-menu__link">Вверхняя одежда</a></li>
+                        <li class="footer-menu__item"><a href="dresses.html" class="footer-menu__link">Платья</a></li>
+                        <li class="footer-menu__item"><a href="/lingerie" class="footer-menu__link">Брюки</a></li>
+                        <li class="footer-menu__item"><a href="/lingerie" class="footer-menu__link">Футболки</a></li>
+                        <li class="footer-menu__item"><a href="/lingerie" class="footer-menu__link">Аксессуары</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3 class="footer__title">НОВИНКИ</h3>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="deals.html" class="footer-menu__link">Акции</a></li>
+                        <li class="footer-menu__item"><a href="new.html" class="footer-menu__link">Новинки</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3 class="footer__title">ИЗБРАННОЕ</h3>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="cart.html" class="footer-menu__link">Корзина</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+    <script>
+        // Данные акционных товаров
+        const dealsData = [
+            { 
+                id: 1, 
+                name: "Вечернее платье с кружевом", 
+                type: "evening", 
+                material: "lace",
+                color: ["black", "red"],
+                size: ["S", "M", "L"], 
+                price: 12500, 
+                oldPrice: 15000, 
+                discount: 17,
+                dealType: "discount",
+                image: "img/dress1.webp",
+                description: "Элегантное вечернее платье из кружева с открытой спиной.",
+                endDate: "2023-07-15T23:59:59"
+            },
+            { 
+                id: 2, 
+                name: "Летний комплект: платье + сумка", 
+                type: "bundle", 
+                material: "cotton",
+                color: ["white", "blue"],
+                size: ["S", "M"], 
+                price: 8900, 
+                oldPrice: 12000, 
+                discount: 26,
+                dealType: "bundle",
+                image: "img/bundle1.jpg",
+                description: "Летний комплект: платье из хлопка + стильная сумка из экокожи.",
+                endDate: "2023-07-10T23:59:59"
+            },
+            { 
+                id: 3, 
+                name: "Офисное платье-футляр", 
+                type: "office", 
+                material: "viscose",
+                color: ["black", "blue"],
+                size: ["S", "M"], 
+                price: 7800, 
+                oldPrice: 9500, 
+                discount: 18,
+                dealType: "discount",
+                image: "img/dress3.jpg",
+                description: "Строгое офисное платье-футляр из вискозы.",
+                endDate: "2023-07-20T23:59:59"
+            },
+            { 
+                id: 4, 
+                name: "Распродажа: коктейльное платье", 
+                type: "cocktail", 
+                material: "silk",
+                color: ["red", "pink"],
+                size: ["M", "L"], 
+                price: 6900, 
+                oldPrice: 11000, 
+                discount: 37,
+                dealType: "clearance",
+                image: "img/dress4.webp",
+                description: "Стильное коктейльное платье из шелка с рюшами.",
+                endDate: "2023-07-05T23:59:59"
+            },
+            { 
+                id: 5, 
+                name: "Набор: 2 платья + пояс", 
+                type: "bundle", 
+                material: "cotton",
+                color: ["white", "blue"],
+                size: ["S", "M", "L"], 
+                price: 11500, 
+                oldPrice: 16000, 
+                discount: 28,
+                dealType: "bundle",
+                image: "img/dress5.webp",
+                description: "Набор из 2-х платьев и декоративного пояса.",
+                endDate: "2023-07-25T23:59:59"
+            },
+            { 
+                id: 6, 
+                name: "Шифоновое платье миди", 
+                type: "evening", 
+                material: "chiffon",
+                color: ["black", "pink"],
+                size: ["XS", "S", "M"], 
+                price: 10200, 
+                oldPrice: 12500, 
+                discount: 18,
+                dealType: "discount",
+                image: "img/dress6.jpg",
+                description: "Романтичное шифоновое платье миди длины.",
+                endDate: "2023-07-18T23:59:59"
+            }
+        ];
+
+        // Состояние страницы
+        const state = {
+            products: [...dealsData],
+            filteredProducts: [...dealsData],
+            activeTab: 'all',
+            currentPage: 1,
+            productsPerPage: 6
+        };
+
+        // DOM элементы
+        const elements = {
+            dealsGrid: document.getElementById('dealsGrid'),
+            countdownTimer: document.getElementById('countdownTimer'),
+            days: document.getElementById('days'),
+            hours: document.getElementById('hours'),
+            minutes: document.getElementById('minutes'),
+            seconds: document.getElementById('seconds'),
+            dealTabs: document.querySelectorAll('.deals-tab'),
+            cartCount: document.getElementById('cart-count'),
+            specialOfferBtn: document.getElementById('specialOfferBtn')
+        };
+
+        // Инициализация страницы
+        function initPage() {
+            renderProducts();
+            setupEventListeners();
+            updateCartCount();
+            startCountdown();
+        }
+
+        // Рендер товаров
+        function renderProducts() {
+            elements.dealsGrid.innerHTML = state.filteredProducts.map(product => `
+                <article class="product-card">
+                    <span class="discount-badge">-${product.discount}%</span>
+                    <div class="product-card__image-wrapper">
+                        <img src="${product.image}" alt="${product.name}" class="product-card__image" loading="lazy">
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">${product.name}</h3>
+                        <div class="product-card__meta">
+                            <span class="product-card__deal-type">${getDealTypeName(product.dealType)}</span>
+                            <span class="product-card__time-left">До ${formatDate(product.endDate)}</span>
+                        </div>
+                        <div class="product-card__color">
+                            ${product.color.map(c => `
+                                <span class="product-card__color-item" style="background-color: ${getColorCode(c)}"></span>
+                            `).join('')}
+                        </div>
+                        <div class="product-card__price">
+                            <span class="product-card__current-price">${product.price.toLocaleString()} ₽</span>
+                            <span class="product-card__old-price">${product.oldPrice.toLocaleString()} ₽</span>
+                        </div>
+                        <div class="product-card__actions">
+                            <button class="btn btn--secondary add-to-cart" data-id="${product.id}">В корзину</button>
+                            <button class="btn btn--outline quick-view" data-id="${product.id}">Подробнее</button>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        // Вспомогательные функции
+        function getDealTypeName(type) {
+            const types = {
+                'discount': 'Скидка',
+                'bundle': 'Набор',
+                'clearance': 'Распродажа'
+            };
+            return types[type] || type;
+        }
+
+        function getColorCode(color) {
+            const colors = {
+                'black': '#000000',
+                'white': '#ffffff',
+                'red': '#ff0000',
+                'blue': '#0000ff',
+                'pink': '#ffc0cb'
+            };
+            return colors[color] || color;
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' });
+        }
+
+        // Таймер обратного отсчета
+        function startCountdown() {
+            // Установим дату окончания акции (через 7 дней от текущей даты)
+            const endDate = new Date();
+            endDate.setDate(endDate.getDate() + 7);
+            
+            const timer = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = endDate - now;
+                
+                if (distance < 0) {
+                    clearInterval(timer);
+                    elements.countdownTimer.innerHTML = '<div class="countdown-ended">Акция завершена!</div>';
+                    return;
+                }
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                elements.days.textContent = days.toString().padStart(2, '0');
+                elements.hours.textContent = hours.toString().padStart(2, '0');
+                elements.minutes.textContent = minutes.toString().padStart(2, '0');
+                elements.seconds.textContent = seconds.toString().padStart(2, '0');
+            }, 1000);
+        }
+
+        // Фильтрация по типам акций
+        function filterProducts() {
+            if (state.activeTab === 'all') {
+                state.filteredProducts = [...state.products];
+            } else {
+                state.filteredProducts = state.products.filter(
+                    product => product.dealType === state.activeTab
+                );
+            }
+            renderProducts();
+        }
+
+        // Настройка обработчиков событий
+        function setupEventListeners() {
+            // Переключение табов
+            elements.dealTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    elements.dealTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    state.activeTab = this.dataset.tab;
+                    filterProducts();
+                });
+            });
+            
+            // Корзина
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('add-to-cart')) {
+                    addToCart(e);
+                }
+                if (e.target.classList.contains('quick-view')) {
+                    const productId = e.target.dataset.id;
+                    window.location.href = `product-dress.html?id=${productId}`;
+                }
+            });
+            
+            // Специальное предложение
+            elements.specialOfferBtn.addEventListener('click', function() {
+                alert('При покупке двух вещей из летней коллекции выберите третью вещь равной или меньшей стоимости - и она будет бесплатной! Акция действительна до 31.07.2025.');
+            });
+        }
+
+        // Работа с корзиной
+        function addToCart(e) {
+            const productId = parseInt(e.target.dataset.id);
+            const product = dealsData.find(p => p.id === productId);
+            
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            animateAddToCart(e.target);
+        }
+
+        function animateAddToCart(button) {
+            const originalText = button.textContent;
+            button.textContent = '✓ Добавлено';
+            button.classList.add('added');
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove('added');
+            }, 2000);
+        }
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            elements.cartCount.textContent = totalItems;
+        }
+
+        // Инициализация при загрузке
+        document.addEventListener('DOMContentLoaded', initPage);
+    </script>
+</body>
+</html>

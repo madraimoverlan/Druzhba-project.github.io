@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление товарами | Дружба - админ панель</title>
+    <link rel="stylesheet" href="css/style-main.css">
+    <link rel="stylesheet" href="css/style-catalog.css">
+    <link rel="stylesheet" href="css/admin-products.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Admin Header Section -->
+   <header class="header">
+    <div class="container">
+        <div class="header__inner">
+            <a href="index.html" class="logo">
+                <img src="img/logo.svg" alt="Дружба" class="logo__img">
+                <span class="logo__text">ДРУЖБА</span>
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item nav__item--dropdown">
+                        <a href="catalog.html" class="nav__link">
+                            <span class="nav__link-text">Каталог</span>
+                            <span class="nav__link-arrow"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="topupClothes.html" class="dropdown-link">Верхняя одежда</a></li>
+                            <li class="dropdown-item"><a href="dresses.html" class="dropdown-link">Платья</a></li>
+                            <li class="dropdown-item"><a href="pants.html" class="dropdown-link">Брюки</a></li>
+                            <li class="dropdown-item"><a href="t-shirts.html" class="dropdown-link">Футболки</a></li>
+                            <li class="dropdown-item"><a href="accessories.html" class="dropdown-link">Аксессуары</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav__item"><a href="deals.html" class="nav__link">Акции</a></li>
+                    <li class="nav__item"><a href="new.html" class="nav__link">Новинки</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__actions">
+                <div class="auth-dropdown">
+                    <button class="auth-btn" id="auth-btn">
+                        <span class="auth-btn__icon">👤</span>
+                        <span class="auth-btn__text" id="auth-btn-text">Войти</span>
+                    </button>
+                    <div class="auth-dropdown-menu" id="auth-dropdown">
+                        <div class="auth-dropdown-content" id="auth-dropdown-content">
+                            <!-- Динамическое содержимое -->
+                        </div>
+                    </div>
+                </div>
+                <a href="cart.html" class="cart-btn-link">
+                    <button class="cart-btn" aria-label="Корзина">
+                        <span class="cart-btn__icon">🛒</span>
+                        <span class="cart-btn__count" id="cart-count">0</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+    </header>
+
+    <main class="admin-main">
+        <section class="admin-controls">
+            <div class="container">
+                <h1 class="admin-title">Управление товарами</h1>
+                
+                <div class="admin-actions">
+                    <button class="btn btn--primary" id="add-product-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        Добавить товар
+                    </button>
+                    
+                    <div class="admin-search">
+                        <input type="text" placeholder="Поиск товаров..." id="product-search">
+                        <button class="search-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="admin-content">
+            <div class="container">
+                <div class="products-table-wrapper">
+                    <table class="products-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Изображение</th>
+                                <th>Название</th>
+                                <th>Категория</th>
+                                <th>Цена</th>
+                                <th>Старая цена</th>
+                                <th>Размеры</th>
+                                <th>Статус</th>
+                                <th>Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-table-body">
+                            <!-- Товары будут загружаться через JS -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="admin-pagination">
+                    <button class="pagination-btn pagination-btn--disabled">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        Назад
+                    </button>
+                    
+                    <div class="pagination-pages">
+                        <button class="page-btn page-btn--active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <span>...</span>
+                        <button class="page-btn">8</button>
+                    </div>
+                    
+                    <button class="pagination-btn">
+                        Вперед
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Модальное окно добавления/редактирования товара -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Добавить новый товар</h3>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            
+            <form id="product-form" enctype="multipart/form-data">
+                <input type="hidden" id="product-id">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="product-name">Название товара*</label>
+                        <input type="text" id="product-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="product-category">Категория*</label>
+                        <select id="product-category" required>
+                            <option value="">Выберите категорию</option>
+                            <option value="coats">Верхняя одежда</option>
+                            <option value="dresses">Платья</option>
+                            <option value="pants">Брюки</option>
+                            <option value="tshirts">Футболки</option>
+                            <option value="accessories">Аксессуары</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="product-price">Цена (₽)*</label>
+                        <input type="number" id="product-price" min="0" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="product-old-price">Старая цена (₽)</label>
+                        <input type="number" id="product-old-price" min="0">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Размеры</label>
+                    <div class="sizes-checkboxes">
+                        <label><input type="checkbox" name="size" value="XS"> XS</label>
+                        <label><input type="checkbox" name="size" value="S"> S</label>
+                        <label><input type="checkbox" name="size" value="M"> M</label>
+                        <label><input type="checkbox" name="size" value="L"> L</label>
+                        <label><input type="checkbox" name="size" value="XL"> XL</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-description">Описание</label>
+                    <textarea id="product-description" rows="4"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-image">Изображение</label>
+                    <input type="file" id="product-image" accept="image/*">
+                    <div class="image-preview" id="image-preview"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="product-is-new"> Новинка
+                    </label>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn--primary">Сохранить</button>
+                    <button type="button" class="btn btn--text" id="modal-cancel">Отмена</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно подтверждения удаления -->
+    <div class="modal" id="confirm-modal">
+        <div class="modal-content small">
+            <div class="modal-header">
+                <h3>Подтверждение удаления</h3>
+                <button class="modal-close" id="confirm-close">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <p>Вы уверены, что хотите удалить этот товар?</p>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn btn--danger" id="confirm-delete">Удалить</button>
+                <button class="btn btn--text" id="confirm-cancel">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Данные товаров (в реальном приложении будут загружаться с сервера)
+        let productsData = [
+            { id: 1, name: "Шерстяное пальто", category: "coats", size: ["S", "M", "L"], price: 10000, oldPrice: 12500, isNew: true, image: "img/Fashion wool coat -8.png" },
+            { id: 2, name: "Джинсы с высокой талией", category: "pants", size: ["XS", "S", "M"], price: 4500, oldPrice: 6000, isNew: false, image: "img/Fashion wool coat -8.png" },
+            { id: 3, name: "Платье миди", category: "dresses", size: ["S", "M"], price: 7000, oldPrice: 8500, isNew: true, image: "img/Fashion wool coat -8.png" },
+            { id: 4, name: "Футболка oversize", category: "tshirts", size: ["M", "L", "XL"], price: 2000, oldPrice: 3000, isNew: false, image: "img/Fashion wool coat -8.png" },
+            { id: 5, name: "Кожаная куртка", category: "coats", size: ["M", "L"], price: 12000, oldPrice: 15000, isNew: false, image: "img/Fashion wool coat -8.png" },
+            { id: 6, name: "Свитшот с капюшоном", category: "sweatshirts", size: ["S", "M", "L"], price: 3500, oldPrice: null, isNew: true, image: "img/Fashion wool coat -8.png" }
+        ];
+
+        // DOM элементы
+        const elements = {
+            tableBody: document.getElementById('products-table-body'),
+            addProductBtn: document.getElementById('add-product-btn'),
+            productSearch: document.getElementById('product-search'),
+            productModal: document.getElementById('product-modal'),
+            confirmModal: document.getElementById('confirm-modal'),
+            modalTitle: document.getElementById('modal-title'),
+            productForm: document.getElementById('product-form'),
+            logoutBtn: document.getElementById('logout-btn')
+        };
+
+        // Текущий редактируемый товар
+        let currentProductId = null;
+        let productToDelete = null;
+
+        // Инициализация страницы
+        function initAdminProducts() {
+            renderProductsTable();
+            setupEventListeners();
+        }
+
+        // Рендер таблицы товаров
+        function renderProductsTable(products = productsData) {
+            elements.tableBody.innerHTML = products.map(product => `
+                <tr>
+                    <td>${product.id}</td>
+                    <td>
+                        <div class="product-image-cell">
+                            <img src="${product.image}" alt="${product.name}" class="product-thumbnail">
+                        </div>
+                    </td>
+                    <td>${product.name}</td>
+                    <td>${getCategoryName(product.category)}</td>
+                    <td>${product.price.toLocaleString()} ₽</td>
+                    <td>${product.oldPrice ? product.oldPrice.toLocaleString() + ' ₽' : '-'}</td>
+                    <td>${product.size.join(', ')}</td>
+                    <td>
+                        <span class="status-badge ${product.isNew ? 'status-new' : 'status-regular'}">
+                            ${product.isNew ? 'Новинка' : 'Обычный'}
+                        </span>
+                    </td>
+                    <td>
+                        <button class="btn-icon edit-product" data-id="${product.id}">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V20C2 20.5304 2.21071 21.0391 2.58579 21.4142C2.96086 21.7893 3.46957 22 4 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M18.5 2.5C18.8978 2.10217 19.4374 1.87868 20 1.87868C20.5626 1.87868 21.1022 2.10217 21.5 2.5C21.8978 2.89782 22.1213 3.43739 22.1213 4C22.1213 4.56261 21.8978 5.10217 21.5 5.5L12 15L8 16L9 12L18.5 2.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        <button class="btn-icon delete-product" data-id="${product.id}">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 6H5H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Получение названия категории по ключу
+        function getCategoryName(categoryKey) {
+            const categories = {
+                'coats': 'Верхняя одежда',
+                'dresses': 'Платья',
+                'pants': 'Брюки',
+                'tshirts': 'Футболки',
+                'accessories': 'Аксессуары',
+                'sweatshirts': 'Свитшоты'
+            };
+            return categories[categoryKey] || categoryKey;
+        }
+
+        // Настройка обработчиков событий
+        function setupEventListeners() {
+            // Добавление товара
+            elements.addProductBtn.addEventListener('click', openAddProductModal);
+            
+            // Поиск товаров
+            elements.productSearch.addEventListener('input', handleSearch);
+            
+            // Редактирование товара
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.edit-product')) {
+                    const productId = parseInt(e.target.closest('.edit-product').dataset.id);
+                    openEditProductModal(productId);
+                }
+            });
+            
+            // Удаление товара
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.delete-product')) {
+                    const productId = parseInt(e.target.closest('.delete-product').dataset.id);
+                    openConfirmDeleteModal(productId);
+                }
+            });
+            
+            // Закрытие модальных окон
+            document.getElementById('modal-close').addEventListener('click', closeProductModal);
+            document.getElementById('modal-cancel').addEventListener('click', closeProductModal);
+            document.getElementById('confirm-close').addEventListener('click', closeConfirmModal);
+            document.getElementById('confirm-cancel').addEventListener('click', closeConfirmModal);
+            
+            // Подтверждение удаления
+            document.getElementById('confirm-delete').addEventListener('click', deleteProduct);
+            
+            // Отправка формы товара
+            elements.productForm.addEventListener('submit', handleProductFormSubmit);
+            
+            // Выход из системы
+            elements.logoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (confirm('Вы действительно хотите выйти?')) {
+                    window.location.href = 'login.html';
+                }
+            });
+            
+            // Закрытие модальных окон при клике вне их
+            window.addEventListener('click', function(e) {
+                if (e.target === elements.productModal) {
+                    closeProductModal();
+                }
+                if (e.target === elements.confirmModal) {
+                    closeConfirmModal();
+                }
+            });
+        }
+
+        // Открытие модального окна добавления товара
+        function openAddProductModal() {
+            currentProductId = null;
+            elements.modalTitle.textContent = 'Добавить новый товар';
+            elements.productForm.reset();
+            document.getElementById('image-preview').innerHTML = '';
+            elements.productModal.style.display = 'block';
+        }
+
+        // Открытие модального окна редактирования товара
+        function openEditProductModal(productId) {
+            const product = productsData.find(p => p.id === productId);
+            if (!product) return;
+            
+            currentProductId = productId;
+            elements.modalTitle.textContent = 'Редактировать товар';
+            
+            // Заполнение формы данными товара
+            document.getElementById('product-id').value = product.id;
+            document.getElementById('product-name').value = product.name;
+            document.getElementById('product-category').value = product.category;
+            document.getElementById('product-price').value = product.price;
+            document.getElementById('product-old-price').value = product.oldPrice || '';
+            document.getElementById('product-description').value = product.description || '';
+            document.getElementById('product-is-new').checked = product.isNew;
+            
+            // Сброс и установка размеров
+            document.querySelectorAll('input[name="size"]').forEach(checkbox => {
+                checkbox.checked = product.size.includes(checkbox.value);
+            });
+            
+            // Превью изображения
+            const imagePreview = document.getElementById('image-preview');
+            imagePreview.innerHTML = '';
+            if (product.image) {
+                const img = document.createElement('img');
+                img.src = product.image;
+                img.alt = product.name;
+                img.className = 'image-preview-img';
+                imagePreview.appendChild(img);
+            }
+            
+            elements.productModal.style.display = 'block';
+        }
+
+        // Закрытие модального окна товара
+        function closeProductModal() {
+            elements.productModal.style.display = 'none';
+        }
+
+        // Открытие модального окна подтверждения удаления
+        function openConfirmDeleteModal(productId) {
+            productToDelete = productId;
+            elements.confirmModal.style.display = 'block';
+        }
+
+        // Закрытие модального окна подтверждения
+        function closeConfirmModal() {
+            elements.confirmModal.style.display = 'none';
+            productToDelete = null;
+        }
+
+        // Удаление товара
+        function deleteProduct() {
+            if (!productToDelete) return;
+            
+            productsData = productsData.filter(p => p.id !== productToDelete);
+            renderProductsTable();
+            closeConfirmModal();
+            
+            // В реальном приложении здесь будет запрос к API
+            alert('Товар успешно удален!');
+        }
+
+        // Обработка поиска
+        function handleSearch() {
+            const searchTerm = elements.productSearch.value.toLowerCase();
+            if (!searchTerm) {
+                renderProductsTable();
+                return;
+            }
+            
+            const filteredProducts = productsData.filter(product => 
+                product.name.toLowerCase().includes(searchTerm) ||
+                product.category.toLowerCase().includes(searchTerm) ||
+                product.id.toString().includes(searchTerm)
+            );
+            
+            renderProductsTable(filteredProducts);
+        }
+
+        // Обработка отправки формы товара
+        function handleProductFormSubmit(e) {
+            e.preventDefault();
+            
+            // Сбор данных формы
+            const formData = {
+                id: currentProductId || generateNextId(),
+                name: document.getElementById('product-name').value,
+                category: document.getElementById('product-category').value,
+                price: parseInt(document.getElementById('product-price').value),
+                oldPrice: document.getElementById('product-old-price').value ? 
+                    parseInt(document.getElementById('product-old-price').value) : null,
+                description: document.getElementById('product-description').value,
+                isNew: document.getElementById('product-is-new').checked,
+                size: Array.from(document.querySelectorAll('input[name="size"]:checked')).map(cb => cb.value),
+                image: document.getElementById('image-preview').querySelector('img')?.src || 
+                    (currentProductId ? productsData.find(p => p.id === currentProductId)?.image : 'img/default-product.jpg')
+            };
+            
+            // В реальном приложении здесь будет загрузка изображения на сервер
+            
+            // Обновление или добавление товара
+            if (currentProductId) {
+                // Редактирование существующего товара
+                const index = productsData.findIndex(p => p.id === currentProductId);
+                if (index !== -1) {
+                    productsData[index] = formData;
+                }
+            } else {
+                // Добавление нового товара
+                productsData.push(formData);
+            }
+            
+            renderProductsTable();
+            closeProductModal();
+            
+            // В реальном приложении здесь будет запрос к API
+            alert(`Товар "${formData.name}" успешно ${currentProductId ? 'обновлен' : 'добавлен'}!`);
+        }
+
+        // Генерация ID для нового товара
+        function generateNextId() {
+            return productsData.length > 0 ? 
+                Math.max(...productsData.map(p => p.id)) + 1 : 1;
+        }
+
+        // Инициализация при загрузке
+        document.addEventListener('DOMContentLoaded', initAdminProducts);
+    </script>
+    <script src="js/admin-products.js"></script>
+</body>
+</html>

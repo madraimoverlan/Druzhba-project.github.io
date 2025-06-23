@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новинки | Дружба - женская одежда</title>
+    <link rel="stylesheet" href="css/style-main.css">
+    <link rel="stylesheet" href="css/style-catalog.css">
+    <link rel="stylesheet" href="css/style-new.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+    <div class="container">
+        <div class="header__inner">
+            <a href="index.html" class="logo">
+                <img src="img/logo.svg" alt="Дружба" class="logo__img">
+                <span class="logo__text">ДРУЖБА</span>
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item nav__item--dropdown">
+                        <a href="catalog.html" class="nav__link">
+                            <span class="nav__link-text">Каталог</span>
+                            <span class="nav__link-arrow"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="topupClothes.html" class="dropdown-link">Верхняя одежда</a></li>
+                            <li class="dropdown-item"><a href="dresses.html" class="dropdown-link">Платья</a></li>
+                            <li class="dropdown-item"><a href="pants.html" class="dropdown-link">Брюки</a></li>
+                            <li class="dropdown-item"><a href="t-shirts.html" class="dropdown-link">Футболки</a></li>
+                            <li class="dropdown-item"><a href="accessories.html" class="dropdown-link">Аксессуары</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav__item"><a href="deals.html" class="nav__link">Акции</a></li>
+                    <li class="nav__item"><a href="new.html" class="nav__link">Новинки</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__actions">
+                <div class="auth-dropdown">
+                    <button class="auth-btn" id="auth-btn">
+                        <span class="auth-btn__icon">👤</span>
+                        <span class="auth-btn__text" id="auth-btn-text">Войти</span>
+                    </button>
+                    <div class="auth-dropdown-menu" id="auth-dropdown">
+                        <div class="auth-dropdown-content" id="auth-dropdown-content">
+                            <!-- Динамическое содержимое -->
+                        </div>
+                    </div>
+                </div>
+                <a href="cart.html" class="cart-btn-link">
+                    <button class="cart-btn" aria-label="Корзина">
+                        <span class="cart-btn__icon">🛒</span>
+                        <span class="cart-btn__count" id="cart-count">0</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+    </header>
+
+
+    <main class="new-page">
+        <section class="new-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('img/new-banner.jpg');">
+            <div class="container">
+                <h1 class="new-banner__title">Новинки сезона</h1>
+                <p class="new-banner__text">Свежие коллекции для вашего гардероба</p>
+            </div>
+        </section>
+
+        <section class="new-controls">
+            <div class="container">
+                <div class="new-controls__inner">
+                    <div class="new-sort">
+                        <label for="sortSelect">Сортировка:</label>
+                        <select id="sortSelect" class="sort-select">
+                            <option value="newest">Сначала новые</option>
+                            <option value="price-asc">По возрастанию цены</option>
+                            <option value="price-desc">По убыванию цены</option>
+                            <option value="popular">По популярности</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="new-main">
+            <div class="container">
+                <div class="new-grid" id="newGrid">
+                    <!-- Товары будут загружаться через JS -->
+                </div>
+                
+                <div class="new-pagination" id="pagination">
+                    <!-- Пагинация будет генерироваться через JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col footer__col--brand">
+                    <div class="footer-brand">
+                        <img src="img/logo2.svg" alt="Дружба" class="footer-brand__logo">
+                        <h3 class="footer-brand__name">ДРУЖБА</h3>
+                    </div>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="/about" class="footer-menu__link">О нас</a></li>
+                        <li class="footer-menu__item"><a href="/reviews" class="footer-menu__link">Отзывы</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3 class="footer__title">КАТАЛОГИ</h3>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="/outerwear" class="footer-menu__link">Верхняя одежда</a></li>
+                        <li class="footer-menu__item"><a href="/dresses" class="footer-menu__link">Платья</a></li>
+                        <li class="footer-menu__item"><a href="/pants" class="footer-menu__link">Брюки</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3 class="footer__title">СЕЗОНЫ</h3>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="/winter" class="footer-menu__link">Зимняя коллекция</a></li>
+                        <li class="footer-menu__item"><a href="/spring" class="footer-menu__link">Весенняя коллекция</a></li>
+                        <li class="footer-menu__item"><a href="/autumn" class="footer-menu__link">Осенняя коллекция</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3 class="footer__title">ПОМОЩЬ</h3>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="/size-chart" class="footer-menu__link">Таблица размеров</a></li>
+                        <li class="footer-menu__item"><a href="/delivery" class="footer-menu__link">Доставка и оплата</a></li>
+                        <li class="footer-menu__item"><a href="/contacts" class="footer-menu__link">Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+    <script>
+        // Данные новинок (только товары с isNew: true)
+        const newProductsData = [
+            { 
+                id: 1, 
+                name: "Вечернее платье с кружевом", 
+                type: "evening", 
+                material: "lace",
+                color: ["black", "red"],
+                size: ["S", "M", "L"], 
+                price: 12500, 
+                oldPrice: 15000, 
+                isNew: true, 
+                image: "img/dress1.webp",
+                description: "Элегантное вечернее платье из кружева с открытой спиной. Идеально подходит для торжественных мероприятий и особых случаев.",
+                dateAdded: "2023-05-15"
+            },
+            { 
+                id: 3, 
+                name: "Офисное платье-футляр", 
+                type: "office", 
+                material: "viscose",
+                color: ["black", "blue"],
+                size: ["S", "M"], 
+                price: 7800, 
+                oldPrice: 9500, 
+                isNew: true, 
+                image: "img/dress3.jpg",
+                description: "Строгое офисное платье-футляр из вискозы. Подчеркивает фигуру и сохраняет комфорт в течение всего дня.",
+                dateAdded: "2023-06-01"
+            },
+            { 
+                id: 6, 
+                name: "Шифоновое платье миди", 
+                type: "evening", 
+                material: "chiffon",
+                color: ["black", "pink"],
+                size: ["XS", "S", "M"], 
+                price: 10200, 
+                oldPrice: 12500, 
+                isNew: true, 
+                image: "img/dress6.jpg",
+                description: "Романтичное шифоновое платье миди длины. Легкие струящиеся ткани создают женственный образ.",
+                dateAdded: "2023-05-20"
+            },
+            { 
+                id: 8, 
+                name: "Платье-макси с поясом", 
+                type: "evening", 
+                material: "silk",
+                color: ["black", "blue"],
+                size: ["M", "L"], 
+                price: 14500, 
+                oldPrice: 0, 
+                isNew: true, 
+                image: "img/dress8.webp",
+                description: "Роскошное платье-макси из шелка с декоративным поясом. Создает элегантный образ для особых случаев.",
+                dateAdded: "2023-06-10"
+            },
+            { 
+                id: 11, 
+                name: "Платье с воланами", 
+                type: "cocktail", 
+                material: "silk",
+                color: ["red", "pink"],
+                size: ["S", "M"], 
+                price: 8700, 
+                oldPrice: 0, 
+                isNew: true, 
+                image: "img/dress11.jpg",
+                description: "Игривое коктейльное платье с воланами из шелка. Добавляет образу динамики и женственности.",
+                dateAdded: "2023-05-25"
+            }
+        ];
+
+        // Состояние страницы
+        const state = {
+            products: [...newProductsData],
+            sortBy: 'newest',
+            currentPage: 1,
+            productsPerPage: 8
+        };
+
+        // DOM элементы
+        const elements = {
+            newGrid: document.getElementById('newGrid'),
+            sortSelect: document.getElementById('sortSelect'),
+            pagination: document.getElementById('pagination'),
+            cartCount: document.getElementById('cart-count')
+        };
+
+        // Инициализация страницы
+        function initPage() {
+            renderProducts();
+            setupEventListeners();
+            updateCartCount();
+        }
+
+        // Рендер товаров
+        function renderProducts() {
+            const start = (state.currentPage - 1) * state.productsPerPage;
+            const end = start + state.productsPerPage;
+            const productsToShow = state.products.slice(start, end);
+
+            elements.newGrid.innerHTML = productsToShow.map(product => `
+                <article class="product-card">
+                    <span class="product-card__badge">Новинка</span>
+                    <div class="product-card__image-wrapper">
+                        <img src="${product.image}" alt="${product.name}" class="product-card__image" loading="lazy">
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">${product.name}</h3>
+                        <div class="product-card__meta">
+                            <span class="product-card__material">${getMaterialName(product.material)}</span>
+                            <span class="product-card__type">${getTypeName(product.type)}</span>
+                        </div>
+                        <div class="product-card__color">
+                            ${product.color.map(c => `
+                                <span class="product-card__color-item" style="background-color: ${getColorCode(c)}"></span>
+                            `).join('')}
+                        </div>
+                        <div class="product-card__price">
+                            <span class="product-card__current-price">${product.price.toLocaleString()} ₽</span>
+                            ${product.oldPrice ? `<span class="product-card__old-price">${product.oldPrice.toLocaleString()} ₽</span>` : ''}
+                        </div>
+                        <div class="product-card__actions">
+                            <button class="btn btn--secondary add-to-cart" data-id="${product.id}">В корзину</button>
+                            <button class="btn btn--outline quick-view" data-id="${product.id}">Подробнее</button>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+
+            renderPagination();
+        }
+
+        // Вспомогательные функции
+        function getMaterialName(material) {
+            const materials = {
+                'lace': 'Кружево',
+                'cotton': 'Хлопок',
+                'silk': 'Шелк',
+                'viscose': 'Вискоза',
+                'chiffon': 'Шифон'
+            };
+            return materials[material] || material;
+        }
+
+        function getTypeName(type) {
+            const types = {
+                'evening': 'Вечернее',
+                'casual': 'Повседневное',
+                'office': 'Офисное',
+                'summer': 'Летнее',
+                'cocktail': 'Коктейльное'
+            };
+            return types[type] || type;
+        }
+
+        function getColorCode(color) {
+            const colors = {
+                'black': '#000000',
+                'white': '#ffffff',
+                'red': '#ff0000',
+                'blue': '#0000ff',
+                'pink': '#ffc0cb'
+            };
+            return colors[color] || color;
+        }
+
+        // Пагинация
+        function renderPagination() {
+            const totalPages = Math.ceil(state.products.length / state.productsPerPage);
+            
+            if (totalPages <= 1) {
+                elements.pagination.style.display = 'none';
+                return;
+            }
+            
+            elements.pagination.style.display = 'flex';
+            
+            const pagesHTML = Array.from({length: totalPages}, (_, i) => {
+                const page = i + 1;
+                return `<button class="page-btn ${page === state.currentPage ? 'page-btn--active' : ''}">${page}</button>`;
+            }).join('');
+            
+            elements.pagination.innerHTML = `
+                <button class="pagination-btn ${state.currentPage === 1 ? 'pagination-btn--disabled' : ''}" data-action="prev">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Назад
+                </button>
+                
+                <div class="pagination-pages">
+                    ${pagesHTML}
+                </div>
+                
+                <button class="pagination-btn ${state.currentPage === totalPages ? 'pagination-btn--disabled' : ''}" data-action="next">
+                    Вперед
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            `;
+        }
+
+        // Сортировка
+        function sortProducts() {
+            switch(state.sortBy) {
+                case 'price-asc':
+                    state.products.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-desc':
+                    state.products.sort((a, b) => b.price - a.price);
+                    break;
+                case 'popular':
+                    state.products.sort((a, b) => b.id - a.id);
+                    break;
+                default: // newest
+                    state.products.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
+            }
+            
+            state.currentPage = 1;
+            renderProducts();
+        }
+
+        // Настройка обработчиков событий
+        function setupEventListeners() {
+            // Сортировка
+            elements.sortSelect.addEventListener('change', function(e) {
+                state.sortBy = e.target.value;
+                sortProducts();
+            });
+            
+            // Пагинация
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('[data-action="prev"]')) {
+                    if (state.currentPage > 1) {
+                        state.currentPage--;
+                        renderProducts();
+                    }
+                } else if (e.target.closest('[data-action="next"]')) {
+                    const totalPages = Math.ceil(state.products.length / state.productsPerPage);
+                    if (state.currentPage < totalPages) {
+                        state.currentPage++;
+                        renderProducts();
+                    }
+                } else if (e.target.classList.contains('page-btn')) {
+                    state.currentPage = parseInt(e.target.textContent);
+                    renderProducts();
+                }
+            });
+            
+            // Корзина
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('add-to-cart')) {
+                    addToCart(e);
+                }
+                if (e.target.classList.contains('quick-view')) {
+                    const productId = e.target.dataset.id;
+                    window.location.href = `product-dress.html?id=${productId}`;
+                }
+            });
+        }
+
+        // Работа с корзиной
+        function addToCart(e) {
+            const productId = parseInt(e.target.dataset.id);
+            const product = newProductsData.find(p => p.id === productId);
+            
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            animateAddToCart(e.target);
+        }
+
+        function animateAddToCart(button) {
+            const originalText = button.textContent;
+            button.textContent = '✓ Добавлено';
+            button.classList.add('added');
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove('added');
+            }, 2000);
+        }
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            elements.cartCount.textContent = totalItems;
+        }
+
+        // Инициализация при загрузке
+        document.addEventListener('DOMContentLoaded', initPage);
+    </script>
+</body>
+</html>

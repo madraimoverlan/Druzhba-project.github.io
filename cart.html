@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина | Дружба - женская одежда</title>
+    <link rel="stylesheet" href="css/style-main.css">
+    <link rel="stylesheet" href="css/style-cart.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+        <!-- Header Section -->
+    <header class="header">
+    <div class="container">
+        <div class="header__inner">
+            <a href="index.html" class="logo">
+                <img src="img/logo.svg" alt="Дружба" class="logo__img">
+                <span class="logo__text">ДРУЖБА</span>
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item nav__item--dropdown">
+                        <a href="catalog.html" class="nav__link">
+                            <span class="nav__link-text">Каталог</span>
+                            <span class="nav__link-arrow"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="topupClothes.html" class="dropdown-link">Верхняя одежда</a></li>
+                            <li class="dropdown-item"><a href="dresses.html" class="dropdown-link">Платья</a></li>
+                            <li class="dropdown-item"><a href="pants.html" class="dropdown-link">Брюки</a></li>
+                            <li class="dropdown-item"><a href="t-shirts.html" class="dropdown-link">Футболки</a></li>
+                            <li class="dropdown-item"><a href="accessories.html" class="dropdown-link">Аксессуары</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav__item"><a href="deals.html" class="nav__link">Акции</a></li>
+                    <li class="nav__item"><a href="new.html" class="nav__link">Новинки</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__actions">
+                <div class="auth-dropdown">
+                    <button class="auth-btn" id="auth-btn">
+                        <span class="auth-btn__icon">👤</span>
+                        <span class="auth-btn__text" id="auth-btn-text">Войти</span>
+                    </button>
+                    <div class="auth-dropdown-menu" id="auth-dropdown">
+                        <div class="auth-dropdown-content" id="auth-dropdown-content">
+                            <!-- Динамическое содержимое -->
+                        </div>
+                    </div>
+                </div>
+                <a href="cart.html" class="cart-btn-link">
+                    <button class="cart-btn" aria-label="Корзина">
+                        <span class="cart-btn__icon">🛒</span>
+                        <span class="cart-btn__count" id="cart-count">0</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+    </header>
+
+    <main class="cart-page">
+        <div class="container">
+            <!-- Заголовок корзины -->
+            <div class="cart-header">
+                <h1 class="cart-title">Ваша корзина</h1>
+                <p class="cart-items-count" id="cart-items-count">0 товаров</p>
+            </div>
+
+            <!-- Основное содержимое корзины -->
+            <div class="cart-content">
+                <!-- Список товаров -->
+                <div class="cart-items" id="cart-items">
+                    <!-- Товары будут загружаться через JS -->
+                </div>
+
+                <!-- Итоговая информация -->
+                <div class="cart-summary">
+                    <div class="summary-card">
+                        <h3 class="summary-title">Ваш заказ</h3>
+                        
+                        <div class="summary-row">
+                            <span>Товары</span>
+                            <span id="summary-items-price">0 ₽</span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Скидка</span>
+                            <span class="discount" id="summary-discount">0 ₽</span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Доставка</span>
+                            <span id="summary-delivery">Бесплатно</span>
+                        </div>
+                        
+                        <div class="summary-divider"></div>
+                        
+                        <div class="summary-row total">
+                            <span>Итого</span>
+                            <span id="summary-total">0 ₽</span>
+                        </div>
+                        
+                        <button class="btn btn--primary btn--block" id="checkout-btn">Оформить заказ</button>
+                        
+                        <p class="secure-checkout">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Безопасное оформление заказа
+                        </p>
+                    </div>
+                    
+                    <div class="promo-code">
+                        <h4 class="promo-title">Промокод</h4>
+                        <div class="promo-input-group">
+                            <input type="text" id="promo-code" placeholder="Введите промокод">
+                            <button class="btn btn--outline" id="apply-promo">Применить</button>
+                        </div>
+                        <p class="promo-hint" id="promo-hint"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Рекомендуемые товары -->
+            <section class="recommended-section">
+                <h2 class="section-title">Рекомендуем добавить</h2>
+                <div class="recommended-grid" id="recommended-grid">
+                    <!-- Товары будут загружаться через JS -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer (как на главной) -->
+       <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <!-- Brand Column -->
+                <div class="footer__col footer__col--brand">
+                    <div class="footer-brand">
+                        <img src="img/logo2.svg" alt="Дружба" class="footer-brand__logo">
+                        <h3 class="footer-brand__name">ДРУЖБА</h3>
+                    </div>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="/about" class="footer-menu__link">О нас</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Other Columns -->
+                <div class="footer__col">
+                    <h3 class="footer__title">КАТАЛОГИ</h3>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="topupClothes.html" class="footer-menu__link">Вверхняя одежда</a></li>
+                        <li class="footer-menu__item"><a href="dresses.html" class="footer-menu__link">Платья</a></li>
+                        <li class="footer-menu__item"><a href="/lingerie" class="footer-menu__link">Брюки</a></li>
+                        <li class="footer-menu__item"><a href="/lingerie" class="footer-menu__link">Футболки</a></li>
+                        <li class="footer-menu__item"><a href="/lingerie" class="footer-menu__link">Аксессуары</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3 class="footer__title">НОВИНКИ</h3>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="deals.html" class="footer-menu__link">Акции</a></li>
+                        <li class="footer-menu__item"><a href="new.html" class="footer-menu__link">Новинки</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3 class="footer__title">ИЗБРАННОЕ</h3>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="cart.html" class="footer-menu__link">Корзина</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/slide-outMenu.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/cart-script.js"></script>
+</body>
+</html>

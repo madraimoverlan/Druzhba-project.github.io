@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Forward | Женская одежда</title>
+    <link rel="stylesheet" href="css/style-main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+   <header class="header">
+    <div class="container">
+        <div class="header__inner">
+            <a href="index.html" class="logo">
+                <img src="img/logo.svg" alt="Дружба" class="logo__img">
+                <span class="logo__text">ДРУЖБА</span>
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item nav__item--dropdown">
+                        <a href="catalog.html" class="nav__link">
+                            <span class="nav__link-text">Каталог</span>
+                            <span class="nav__link-arrow"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="topupClothes.html" class="dropdown-link">Верхняя одежда</a></li>
+                            <li class="dropdown-item"><a href="dresses.html" class="dropdown-link">Платья</a></li>
+                            <li class="dropdown-item"><a href="pants.html" class="dropdown-link">Брюки</a></li>
+                            <li class="dropdown-item"><a href="t-shirts.html" class="dropdown-link">Футболки</a></li>
+                            <li class="dropdown-item"><a href="accessories.html" class="dropdown-link">Аксессуары</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav__item"><a href="deals.html" class="nav__link">Акции</a></li>
+                    <li class="nav__item"><a href="new.html" class="nav__link">Новинки</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__actions">
+                <div class="auth-dropdown">
+                    <button class="auth-btn" id="auth-btn">
+                        <span class="auth-btn__icon">👤</span>
+                        <span class="auth-btn__text" id="auth-btn-text">Войти</span>
+                    </button>
+                    <div class="auth-dropdown-menu" id="auth-dropdown">
+                        <div class="auth-dropdown-content" id="auth-dropdown-content">
+                            <!-- Динамическое содержимое -->
+                        </div>
+                    </div>
+                </div>
+                <a href="cart.html" class="cart-btn-link">
+                    <button class="cart-btn" aria-label="Корзина">
+                        <span class="cart-btn__icon">🛒</span>
+                        <span class="cart-btn__count" id="cart-count">0</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title">ДАВАЙ<br>ИЗУЧАТЬ<br>ОДЕЖДУ.</h1>
+                    <p class="hero__text">Живите ради влиятельной и инновационной моды!</p>
+                    <button class="btn btn--primary" onclick="window.location.href='catalog.html'">КУПИТЬ</button>
+                </div>
+                <img src="img/girl-banner.png" alt="Модная одежда" class="hero__image">
+            </div>
+        </section>
+
+        <!-- New Products Section -->
+        <section class="section new-products" id="categories">
+            <div class="container">
+                <h2 class="section__title">НОВЫЕ ТОВАРЫ</h2>
+                <div class="category-grid">
+                    <!-- Category Card 1 -->
+                    <article class="category-card">
+                        <div class="category-card__image-wrapper">
+                            <img src="img/ТолствокиСвитшоты.png" alt="Толстовки и свитшоты" class="category-card__image" loading="lazy">
+                        </div>
+                        <div class="category-card__content">
+                            <h3 class="category-card__title">Вверхняя одежда</h3>
+                            <button class="btn btn--secondary" onclick="window.location.href='topupClothes.html'">Посмотреть</button>
+                        </div>
+                    </article>
+                    
+                    <!-- Category Card 2 -->
+                    <article class="category-card">
+                        <div class="category-card__image-wrapper">
+                            <img src="img/КурткиЖилетки.png" alt="Куртки и жилетки" class="category-card__image" loading="lazy">
+                        </div>
+                        <div class="category-card__content">
+                            <h3 class="category-card__title">Аксессуары</h3>
+                            <button class="btn btn--secondary">Посмотреть</button>
+                        </div>
+                    </article>
+                    
+                    <!-- Category Card 3 -->
+                    <article class="category-card">
+                        <div class="category-card__image-wrapper">
+                            <img src="img/ФутболкиМайки.png" alt="Футболки и майки" class="category-card__image" loading="lazy">
+                        </div>
+                        <div class="category-card__content">
+                            <h3 class="category-card__title">Футболки</h3>
+                            <button class="btn btn--secondary">Посмотреть</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deals Section -->
+        <section class="section deals" id="deals">
+            <div class="container">
+                <h2 class="section__title">ЛУЧШИЕ ПРЕДЛОЖЕНИЯ</h2>
+                <div class="deals-grid" id="deals-grid">
+                    <!-- Products will be loaded via JS -->
+                </div>
+                <button class="btn btn--outline show-more">Показать все</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <!-- Brand Column -->
+                <div class="footer__col footer__col--brand">
+                    <div class="footer-brand">
+                        <img src="img/logo2.svg" alt="Дружба" class="footer-brand__logo">
+                        <h3 class="footer-brand__name">ДРУЖБА</h3>
+                    </div>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="/about" class="footer-menu__link">О нас</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Other Columns -->
+                <div class="footer__col">
+                    <h3 class="footer__title">КАТАЛОГИ</h3>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="topupClothes.html" class="footer-menu__link">Вверхняя одежда</a></li>
+                        <li class="footer-menu__item"><a href="dresses.html" class="footer-menu__link">Платья</a></li>
+                        <li class="footer-menu__item"><a href="/lingerie" class="footer-menu__link">Брюки</a></li>
+                        <li class="footer-menu__item"><a href="/lingerie" class="footer-menu__link">Футболки</a></li>
+                        <li class="footer-menu__item"><a href="/lingerie" class="footer-menu__link">Аксессуары</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3 class="footer__title">НОВИНКИ</h3>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="deals.html" class="footer-menu__link">Акции</a></li>
+                        <li class="footer-menu__item"><a href="new.html" class="footer-menu__link">Новинки</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3 class="footer__title">ИЗБРАННОЕ</h3>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="cart.html" class="footer-menu__link">Корзина</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/slide-outMenu.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+  // Проверяем, есть ли обновленные товары в localStorage при загрузке
+  document.addEventListener('DOMContentLoaded', function() {
+    const savedProducts = localStorage.getItem('storeProducts');
+    if (savedProducts) {
+      // Обновляем данные товаров
+      state.products = JSON.parse(savedProducts);
+      state.filteredProducts = JSON.parse(savedProducts);
+      
+      // Перерисовываем каталог
+      renderProducts();
+      updateCartSummary();
+      loadRecommendedProducts();
+    }
+    
+    // Слушаем изменения в localStorage (если админ изменил товары в другой вкладке)
+    window.addEventListener('storage', function(e) {
+      if (e.key === 'storeProducts') {
+        state.products = JSON.parse(e.newValue);
+        state.filteredProducts = JSON.parse(e.newValue);
+        renderProducts();
+        updateCartSummary();
+        loadRecommendedProducts();
+      }
+    });
+  });
+</script>
+</body>
+</html>

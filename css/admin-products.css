@@ -1,0 +1,309 @@
+/* ========== ADMIN STYLES ========== */
+.admin-header {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 15px 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.admin-header .logo__text {
+    color: var(--white);
+}
+
+.admin-nav .nav__list {
+    display: flex;
+    gap: 20px;
+}
+
+.admin-nav .nav__link {
+    color: var(--white);
+    opacity: 0.8;
+    transition: var(--transition);
+}
+
+.admin-nav .nav__link:hover,
+.admin-nav .nav__link.active {
+    opacity: 1;
+    font-weight: 600;
+}
+
+.admin-main {
+    padding: 30px 0;
+}
+
+.admin-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+.admin-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.admin-search {
+    display: flex;
+    align-items: center;
+    background-color: var(--white);
+    border-radius: 30px;
+    padding: 8px 15px;
+    box-shadow: var(--shadow-sm);
+    width: 100%;
+    max-width: 300px;
+}
+
+.admin-search input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding: 5px;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Таблица товаров */
+.products-table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 30px;
+}
+
+.products-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.products-table th,
+.products-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.products-table th {
+    background-color: var(--light-gray);
+    font-weight: 600;
+}
+
+.product-image-cell {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-thumbnail {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-new {
+    background-color: rgba(74, 222, 128, 0.1);
+    color: var(--primary-color);
+}
+
+.status-regular {
+    background-color: rgba(209, 213, 219, 0.3);
+    color: var(--dark-gray);
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-icon:hover {
+    background-color: var(--light-gray);
+}
+
+.btn-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Модальные окна */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    max-width: 800px;
+    width: 90%;
+}
+
+.modal-content.small {
+    max-width: 500px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--dark-gray);
+}
+
+.modal-body {
+    margin-bottom: 20px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 15px;
+    border-top: 1px solid var(--medium-gray);
+}
+
+/* Форма товара */
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    font-family: inherit;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.sizes-checkboxes {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.sizes-checkboxes label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.image-preview {
+    margin-top: 10px;
+}
+
+.image-preview-img {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--medium-gray);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Кнопка опасного действия */
+.btn--danger {
+    background-color: var(--danger-color);
+    color: var(--white);
+}
+
+.btn--danger:hover {
+    background-color: #dc2626;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .admin-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .admin-search {
+        max-width: 100%;
+    }
+    
+    .products-table th,
+    .products-table td {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+}
